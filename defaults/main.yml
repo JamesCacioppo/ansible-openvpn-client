@@ -1,0 +1,4 @@
+---
+enabled: true
+config_file: client
+config_file_path: ../files/

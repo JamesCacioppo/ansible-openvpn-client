@@ -1,0 +1,12 @@
+---
+- name: enable_service
+  systemd:
+    name: openvpn-client@{{ config_file }}
+    enabled: true
+    daemon-reload: true
+  when: enabled|bool == true
+
+- name: restart_service
+  systemd:
+    name: openvpn-client@{{ config_file }}
+    state: restarted

@@ -1,0 +1,13 @@
+---
+- name: Install OpenVPN
+  yum:
+    name: openvpn
+    state: latest
+  become: true
+
+- name: Install Client Configuration File
+  copy:
+    src: "{{ config_file_path }}/{{ config_file }}.conf"
+    dest: "/etc/openvpn/client/{{ config_file }}.conf"
+  become: true
+  notify: restart_service
